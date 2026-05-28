@@ -84,7 +84,7 @@ st.sidebar.header("Настройки")
 mode = st.sidebar.radio("Режим поиска:", ["Пользователь (User ID)", "Товар (Product ID)"])
 
 if mode == "Пользователь (User ID)":
-    selected_user = st.sidebar.number_input("Номер Покупателя (1 - 99000):", min_value=1, max_value=len(full_history), value=None, step=1)
+    selected_user = st.sidebar.number_input("Номер Покупателя (1 - 91979):", min_value=1, max_value=len(full_history), value=None, step=1)
     available_models = [
         "Model 1: Alibaba Swing (Графовая)",
         "Model 2: Content-Based (Косинусное сходство)",
