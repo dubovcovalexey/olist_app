@@ -98,11 +98,10 @@ else:
     selected_macro = st.sidebar.selectbox("Шаг 1: Макро-группа:", unique_macro_groups)
     
     filtered_df_by_macro = df_products[df_products['category_group'] == selected_macro]
-    # Фильтруем значения, отсекаем NaN, приводим к строкам и удаляем дубликаты
+    # Фильтруем пустые значения, приводим к строкам и безопасно закрываем метод sorted()
     raw_unique = filtered_df_by_macro['product_category_name_english'].dropna().astype(str).unique().tolist()
-    
-    # Безопасная сортировка: если список пустой, отдаем ['other'], если нет — сортируем реальные подкатегории
     unique_micro_groups = sorted(raw_unique) if raw_unique else ['other']
+
 
     selected_micro = st.sidebar.selectbox("Шаг 2: Микро-категория:", unique_micro_groups)
     
